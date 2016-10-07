@@ -11,7 +11,8 @@ public class ColorChange : MonoBehaviour {
     float addValue = 0.5f;
     // Use this for initialization
     void Start () {
-        this.GetComponent<MeshRenderer>().material.color = characterColor;
+        foreach(Material material in this.GetComponent<MeshRenderer>().materials)
+           material.color = characterColor;
 	}
 	
 	// Update is called once per frame
@@ -23,26 +24,30 @@ public class ColorChange : MonoBehaviour {
     {
         characterColor.r -= addValue;
         characterColor.r = characterColor.r < 0 ? 0 : characterColor.r;
-        this.GetComponent<MeshRenderer>().material.color = characterColor;
+        foreach (Material material in this.GetComponent<MeshRenderer>().materials)
+            material.color = characterColor;
     }
 
     public void painMoreMagenta()
     {
         characterColor.g -= addValue;
         characterColor.g = characterColor.g < 0 ? 0 : characterColor.g;
-        this.GetComponent<MeshRenderer>().material.color = characterColor;
+        foreach (Material material in this.GetComponent<MeshRenderer>().materials)
+            material.color = characterColor;
     }
 
     public void painMoreYellow()
     {
         characterColor.b -= addValue;
         characterColor.b = characterColor.b < 0 ? 0 : characterColor.b;
-        this.GetComponent<MeshRenderer>().material.color = characterColor;
+        foreach (Material material in this.GetComponent<MeshRenderer>().materials)
+            material.color = characterColor;
     }
 
     public void ResetCharacterColor()
     {
         characterColor = new Color(1, 1, 1);
-        this.GetComponent<MeshRenderer>().material.color = characterColor;
+        foreach (Material material in this.GetComponent<MeshRenderer>().materials)
+            material.color = characterColor;
     }
 }
