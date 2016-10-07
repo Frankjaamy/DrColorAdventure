@@ -1,7 +1,8 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{8D91B3D8-C7D3-A671-0F74-D559FABF71FE}") = "ProjectColorEdu", "Assembly-CSharp.csproj", "{B290C263-B956-7F11-F3B0-7D5718CF1E6A}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{133A700A-9137-24AD-8356-BF79396C84CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B290C263-B956-7F11-F3B0-7D5718CF1E6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B290C263-B956-7F11-F3B0-7D5718CF1E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B290C263-B956-7F11-F3B0-7D5718CF1E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B290C263-B956-7F11-F3B0-7D5718CF1E6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{133A700A-9137-24AD-8356-BF79396C84CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{133A700A-9137-24AD-8356-BF79396C84CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{133A700A-9137-24AD-8356-BF79396C84CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{133A700A-9137-24AD-8356-BF79396C84CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
