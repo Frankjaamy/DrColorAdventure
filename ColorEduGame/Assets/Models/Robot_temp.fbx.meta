@@ -1,10 +1,26 @@
 fileFormatVersion: 2
-guid: 2078505e3496b6145b204bc3ec8da648
-timeCreated: 1475858391
+guid: 4b801959d55443347af4f7429c3e477a
+timeCreated: 1475864834
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: Body3
+    100002: Body4
+    100004: pSphere2
+    100006: //RootNode
+    100008: transform10
+    100010: transform9
+    400000: Body3
+    400002: Body4
+    400004: pSphere2
+    400006: //RootNode
+    400008: transform10
+    400010: transform9
+    2300000: Body4
+    3300000: Body4
+    4300000: Body4
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
