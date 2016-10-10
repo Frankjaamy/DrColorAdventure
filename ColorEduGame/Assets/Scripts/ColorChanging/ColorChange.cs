@@ -29,6 +29,7 @@ public class ColorChange : MonoBehaviour {
 
     public void ResetCharacterColor()
     {
+		timesColorAdded = 0;
         setMaterialColor(Color.white);
         timesColorAdded = 0;
     }
