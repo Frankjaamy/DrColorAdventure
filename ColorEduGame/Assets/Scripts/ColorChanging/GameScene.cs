@@ -19,8 +19,11 @@ public class GameScene : MonoBehaviour {
         float g = Random.value;
         float b = Random.value;
         Color color = new Vector4(r,g,b,1);
+		MeshRenderer[] renderer = this.gameObject.GetComponentsInChildren<MeshRenderer> ();
+		foreach (MeshRenderer mRenderer in renderer)
+		{
+			mRenderer.material.color = color;
+		}
 
-        Material mat = GameObject.Find("gameScene/pCube8").GetComponent<MeshRenderer>().material;
-        mat.color = color;
     }
 }
