@@ -3,15 +3,15 @@ using System.Collections;
 
 public class setRedColor : MonoBehaviour {
 
+	private GameObject robot;
+
 	void Start ()
 	{
-		foreach (Material material in this.GetComponent<MeshRenderer>().materials)
-			material.color = Color.red;
+		robot = GameObject.Find ("Robot");
 	}
 
 	void OnMouseDown()
 	{
-		this.transform.root.GetComponentInChildren<ColorChange>().paintRed();
-		Debug.Log ("Red!");
+		robot.GetComponentInChildren<ColorChange>().paintRed();
 	}
 }

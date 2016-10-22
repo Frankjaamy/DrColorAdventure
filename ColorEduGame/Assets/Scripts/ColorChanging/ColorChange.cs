@@ -3,11 +3,15 @@ using System.Collections;
 
 public class ColorChange : MonoBehaviour {
 
+	private LevelManagerScript lvlManager;
+
     Color characterColor = new Color(1, 1, 1);
 
     int timesColorAdded = 0;
     // Use this for initialization
-    void Start () {
+    void Start () 
+	{
+		lvlManager = GameObject.Find ("LevelManager").GetComponent<LevelManagerScript> ();
         foreach(Material material in this.GetComponent<MeshRenderer>().materials)
            material.color = characterColor;
 	}
@@ -36,7 +40,7 @@ public class ColorChange : MonoBehaviour {
 
     private void setMaterialColor(Color i_AddedColor)
     {
-        if (timesColorAdded < 2)
+		if (timesColorAdded < lvlManager.GetCurrentLevel().GetNrOfColorInputs())
         { 
             if (timesColorAdded == 0)
             {

@@ -3,15 +3,16 @@ using System.Collections;
 
 public class setWhiteColor : MonoBehaviour {
 
+	private GameObject robot;
+
 	void Start () 
 	{
-		foreach (Material material in this.GetComponent<MeshRenderer>().materials)
-			material.color = Color.white;
+		robot = GameObject.Find ("Robot");
 	}
 
 	void OnMouseDown()
 	{
-		this.transform.root.gameObject.GetComponentInChildren<ColorChange>().ResetCharacterColor();
+		robot.GetComponentInChildren<ColorChange>().ResetCharacterColor();
 		Debug.Log ("White!");
 	}
 

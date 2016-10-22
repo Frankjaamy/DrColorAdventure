@@ -2,16 +2,17 @@
 using System.Collections;
 
 public class setBlueColor : MonoBehaviour {
+	
+	private GameObject robot;
 
 	void Start () 
 	{
-		foreach (Material material in this.GetComponent<MeshRenderer>().materials)
-			material.color = Color.blue;
+		robot = GameObject.Find ("Robot");
 	}
 
 	void OnMouseDown()
 	{
-		this.transform.root.GetComponentInChildren<ColorChange>().paintBlue();
+		robot.GetComponentInChildren<ColorChange>().paintBlue();
 		Debug.Log ("Blue!");
 	}
 }
