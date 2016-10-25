@@ -8,13 +8,15 @@ public class MoveAlong : MonoBehaviour {
     private Rigidbody m_rigidBody;
     private int m_CurrentWayPointIndex = 0;
     private GameObject m_gameScene;
+    private GameObject m_LevelManager;
 
 	// Use this for initialization
 	void Start () {
         m_rigidBody = GetComponent<Rigidbody>();
         m_gameScene = GameObject.Find("gameScene");
+        m_LevelManager = GameObject.Find("LevelManager");
 
-        for(int i = 0; i < wayPoints.Length; i++)
+        for (int i = 0; i < wayPoints.Length; i++)
         {
             wayPoints[i].x = transform.position.x;
             wayPoints[i].y = transform.position.y;
@@ -23,7 +25,7 @@ public class MoveAlong : MonoBehaviour {
 	}
 	void onEnable()
     {
-        m_rigidBody.isKinematic = true;
+        //m_rigidBody.isKinematic = true;
     }
     // Update is called once per frame
     void Update()
@@ -35,10 +37,10 @@ public class MoveAlong : MonoBehaviour {
             if (transform.position == wayPoints[m_CurrentWayPointIndex])
             {
                 m_CurrentWayPointIndex++;
-                if (m_gameScene){
-                    GameScene gScript = m_gameScene.GetComponent<GameScene>();
-                    gScript.ChangeToRandomColor();
-                }
+                SpawnRooms sp = m_LevelManager.GetComponentInChildren<SpawnRooms>();
+                sp.spawnNewRoom();
+
+                m_LevelManager.GetComponent<LevelManagerScript>().changeLevelColor();
             }
         }
     }

@@ -13,7 +13,7 @@ public class setWhiteColor : MonoBehaviour {
 	void OnMouseDown()
 	{
 		robot.GetComponentInChildren<ColorChange>().ResetCharacterColor();
-		Debug.Log ("White!");
-	}
+        GameObject.Find("Particles").GetComponent<ParticleManager>().changeColor(robot.transform.position);
+    }
 
 }

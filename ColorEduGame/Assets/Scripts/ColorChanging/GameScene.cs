@@ -24,6 +24,5 @@ public class GameScene : MonoBehaviour {
 		{
 			mRenderer.material.color = color;
 		}
-
     }
 }

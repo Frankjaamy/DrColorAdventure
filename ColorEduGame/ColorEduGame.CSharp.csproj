@@ -63,9 +63,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ColorChange.cs" />
-    <Compile Include="Assets\Scripts\GameScene.cs" />
-    <Compile Include="Assets\Scripts\MoveAlong.cs" />
+    <Compile Include="Assets\Scripts\ColorChanging\ColorChange.cs" />
+    <Compile Include="Assets\Scripts\ColorChanging\GameScene.cs" />
+    <Compile Include="Assets\Scripts\ColorChanging\MaterialChange.cs" />
+    <Compile Include="Assets\Scripts\ColorChanging\MaterialsManage.cs" />
+    <Compile Include="Assets\Scripts\ColorChanging\setBlueColor.cs" />
+    <Compile Include="Assets\Scripts\ColorChanging\setGreenColor.cs" />
+    <Compile Include="Assets\Scripts\ColorChanging\setRedColor.cs" />
+    <Compile Include="Assets\Scripts\ColorChanging\setWhiteColor.cs" />
+    <Compile Include="Assets\Scripts\LevelManagerScript.cs" />
+    <Compile Include="Assets\Scripts\Movement\MoveAlong.cs" />
+    <Compile Include="Assets\Scripts\ParticleManager.cs" />
+    <Compile Include="Assets\Scripts\SpawnRooms.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

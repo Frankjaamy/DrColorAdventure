@@ -8,6 +8,11 @@ public class LevelManagerScript : MonoBehaviour
 
 	public Level GetCurrentLevel(){return currentLevel;}
 
+    private Color targetColor;
+    private Color currentColor;
+
+    private SpawnRooms spawnManager;
+    private float timeCount = 0f;
 	void Awake() 
 	{
 		DontDestroyOnLoad(transform.gameObject);
@@ -17,10 +22,26 @@ public class LevelManagerScript : MonoBehaviour
 
 	void Start () 
 	{
-
+        currentColor = new Color(1, 1, 1, 0);
+        targetColor = new Color(1, 1, 1, 1);
+        spawnManager = this.GetComponentInChildren<SpawnRooms>();
 	}
-	
-	//Add functions to navigate levels here
+    void Update()
+    {
+        GameObject[] rooms = spawnManager.Rooms;
+        MaterialsManage mm = rooms[0].GetComponent<MaterialsManage>();
+        mm.CurrentMaterial.color = Color.Lerp(currentColor, targetColor, timeCount/1.0f);
+        timeCount += Time.deltaTime;
+    }
+    int colorRandomCount = 0;
+	public void changeLevelColor()
+    {
+        currentColor = targetColor;
+        Color[] allColorsForThisLevel = spawnManager.Colors;
+        targetColor = allColorsForThisLevel[colorRandomCount%allColorsForThisLevel.Length];
+        colorRandomCount++;
+        timeCount = 0f;
+    }
 }
 
 public class Level

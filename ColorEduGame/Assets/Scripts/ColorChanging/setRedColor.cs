@@ -13,5 +13,6 @@ public class setRedColor : MonoBehaviour {
 	void OnMouseDown()
 	{
 		robot.GetComponentInChildren<ColorChange>().paintRed();
-	}
+        GameObject.Find("Particles").GetComponent<ParticleManager>().changeColor(robot.transform.position);
+    }
 }

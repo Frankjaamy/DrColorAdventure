@@ -13,6 +13,6 @@ public class setGreenColor : MonoBehaviour {
 	void OnMouseDown()
 	{
 		robot.GetComponentInChildren<ColorChange>().paintGreen();
-		Debug.Log ("green!");
-	}
+        GameObject.Find("Particles").GetComponent<ParticleManager>().changeColor(robot.transform.position);
+    }
 }
