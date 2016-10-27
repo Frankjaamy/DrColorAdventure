@@ -1,0 +1,10 @@
+{
+  "levels": [{
+    "nrRooms": 3,
+    "nrOfColorInputs": 1
+  },
+  {
+    "nrRooms": 5,
+    "nrOfColorInputs": 2
+  }]
+}

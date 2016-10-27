@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class LevelManagerScript : MonoBehaviour 
 {
 	private Level currentLevel;
@@ -17,7 +17,8 @@ public class LevelManagerScript : MonoBehaviour
 	{
 		DontDestroyOnLoad(transform.gameObject);
 		currentLevel = new Level ();
-		currentLevel.SetLevel (0);
+        currentLevel.GetJsonData();
+        currentLevel.SetLevel (0);
 	}
 
 	void Start () 
@@ -46,13 +47,16 @@ public class LevelManagerScript : MonoBehaviour
 
 public class Level
 {
-	private int levelNumber = 0;
+    private TextAsset asset;
+    private JsonFile lvlData;
+
+    private int levelNumber = 0;
 	private int nrRooms = 0;
 	private int nrOfColorInputs = 0;
 
 	private Color[] colorPrRoom;
 
-	public void SetLevel(int lvlNumber)
+    public void SetLevel(int lvlNumber)
 	{
 		levelNumber = lvlNumber;
 		SetLevelInfo ();
@@ -62,22 +66,37 @@ public class Level
 	public int GetNrOfRooms(){return nrRooms;}
 	public int GetNrOfColorInputs(){return nrOfColorInputs;}
 	public Color[] GetColorPrRoom(){return colorPrRoom;}
+    public void GetJsonData()
+    {
+        asset = Resources.Load("lvlInfo") as TextAsset;
+        Debug.Log(asset);
+        lvlData = JsonUtility.FromJson<JsonFile>(asset.text);
+    }
 
-	private void SetLevelInfo()
+    private void SetLevelInfo()
 	{
-		if (levelNumber == 0) 
-		{
-			//Setting number of rooms
-			nrRooms = 3;
+		//Setting number of rooms
+		nrRooms = lvlData.levels[levelNumber].nrRooms;
 
-			//Make color of rooms
-			colorPrRoom = new Color[nrRooms];
-			colorPrRoom [0] = Color.red;
-			colorPrRoom [1] = Color.green;
-			colorPrRoom [2] = Color.blue;
+		//Make color of rooms
+		colorPrRoom = new Color[nrRooms];
+		colorPrRoom [0] = Color.red;
+		colorPrRoom [1] = Color.green;
+		colorPrRoom [2] = Color.blue;
 
-			//Setting how many colors can be mixed
-			nrOfColorInputs = 1;
-		}
+		//Setting how many colors can be mixed
+		nrOfColorInputs = lvlData.levels[levelNumber].nrOfColorInputs;
 	}
+}
+
+[System.Serializable]
+class JsonFile
+{
+    [System.Serializable]
+    public struct JsonLvlInfo
+    {
+        public int nrRooms;
+        public int nrOfColorInputs;
+    }
+    public JsonLvlInfo[] levels;
 }
